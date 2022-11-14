@@ -47,13 +47,15 @@ local options = {
     incsearch = true,
     smartcase = true,
     termencoding = 'utf-8',
-    foldmethod = 'marker',
+
+    foldenable = true,
+    foldmethod = 'indent',
     foldlevelstart = 0,
     foldmarker = '{{{,}}}',
-    foldnestmax = 10,  -- Deepest fold is 10 levels
-    foldenable = true,
-    foldlevel = 2,
+    foldnestmax = 2,  -- Deepest fold is 10 levels
+    foldlevel = 4,
     foldcolumn = '4',
+
     clipboard = 'unnamedplus',
     wildignore = {'*.pyc', '*_build/*', '*/coverage/*', '*/south_migrations/*', '*/__pycache__/*'},
     pumheight = 10,  -- Makes popupmenu smaller
