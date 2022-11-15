@@ -6,10 +6,11 @@ configs.setup {
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = false, -- originally it was true
 
   },
-  indent = { enable = true, disable = { "yaml" } },
+  --indent = { enable = true, disable = { "yaml" } },
+  indent = { enable = true },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
