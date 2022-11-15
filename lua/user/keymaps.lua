@@ -78,3 +78,7 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- NvimTree
 keymap("n", "<leader>nt", ":NvimTreeToggle<cr>", opts)
+
+-- Tab keys
+keymap("n", "H", ":tabprevious<CR>", opts)
+keymap("n", "L", ":tabnext<CR>", opts)
