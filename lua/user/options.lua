@@ -8,6 +8,9 @@ local options = {
     undofile = true,
     undoreload = 1000,
     undodir = 'undodir',
+    cindent = true,
+    autoindent = true,
+    smartindent = true,
     expandtab = true,
     smarttab = true,
     tabstop = 4,
@@ -78,23 +81,3 @@ end
 --vim.cmd [[set iskeyword+=-]]  -- "A Word" includes the - char
 --vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
--- Mapping,
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
---vim.api.nvim_set_keymap('i', 'kj', '<esc>', {noremap = true})
---vim.api.nvim_set_keymap('n', 'ff', ':Telescope<cr>', {noremap = true})
---vim.api.nvim_set_keymap('n', 'fg', ':Telescope<cr>', {noremap = true})
---vim.api.nvim_set_keymap('n', 'ff', ':Telescope<cr>', {noremap = true})
---vim.api.nvim_set_keymap('n', 'ff', ':Telescope<cr>', {noremap = true})
---nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
---nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
---nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
---nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
--- LSP
---require'lspconfig'.bashls.setup{} 
---require'lspconfig'.pyright.setup{}
--- require'lspconfig'.css_language_server.setup{}
-
--- Plugins
---require('pyroby')
