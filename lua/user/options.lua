@@ -2,6 +2,8 @@
 local options = {
     background='dark',
     termguicolors = true,
+    textwidth = 79,
+    colorcolumn = "+1",
     synmaxcol=0,
     history = 1000,
     undolevels = 1000,
@@ -60,7 +62,7 @@ local options = {
     foldcolumn = '4',
 
     clipboard = 'unnamedplus',
-    wildignore = {'*.pyc', '*_build/*', '*/coverage/*', '*/south_migrations/*', '*/__pycache__/*'},
+    wildignore = {'*.pyc', '*_build/*', '*/coverage/*', '*/south_migrations/*', '*/__pycache__/*', '*/undodir/*'},
     pumheight = 10,  -- Makes popupmenu smaller
 --    t_Co = 256,
     updatetime = 300,
