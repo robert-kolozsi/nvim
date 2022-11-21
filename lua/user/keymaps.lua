@@ -82,3 +82,6 @@ keymap("n", "<leader>nt", ":NvimTreeToggle<cr>", opts)
 -- Tab keys
 keymap("n", "H", ":tabprevious<CR>", opts)
 keymap("n", "L", ":tabnext<CR>", opts)
+
+-- Buffer keys
+keymap("n", "<Tab>", ":bnext<CR>", opts)
