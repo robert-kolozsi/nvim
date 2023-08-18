@@ -35,7 +35,8 @@ local options = {
     number = true,
     scrolloff = 3,
     list = true,
-    -- listchars = {'tab:→', 'eol:⏎,extends:>', 'precedes:<', 'nbsp:☼'},
+    --listchars = {tab="→", eol="⏎'", precedes="<", nbsp="☼", trail="▓"},
+    listchars = {tab="→ ", eol="¶", nbsp="☼", trail="░"},
     linespace = 0,
     matchtime = 3,
     splitbelow = true,
@@ -51,7 +52,7 @@ local options = {
     hlsearch = true,
     incsearch = true,
     smartcase = true,
-    termencoding = 'utf-8',
+    termencoding = 'utf-8', 
 
     foldenable = true,
     foldmethod = 'indent',
@@ -83,3 +84,12 @@ end
 --vim.cmd [[set iskeyword+=-]]  -- "A Word" includes the - char
 --vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
+
+-- Paint trailing space characters in red.
+vim.cmd([[
+    d
+    augroup TrailingSpacesHighlight
+        autocmd!
+        autocmd BufReadPre * lua vim.fn.matchadd("ErrorMsg", "\\s\\+$")
+    augroup END
+]])

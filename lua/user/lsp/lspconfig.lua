@@ -8,8 +8,8 @@ end
 local pyright_settings = require('user.lsp.settings.pyright')
 lspconfig.pyright.setup(pyright_settings)
 
-local lua_ls_settings = require('user.lsp.settings.lua')
-lspconfig.lua_ls.setup{lua_ls_settings}
+local luals_settings = require('user.lsp.settings.lua_ls')
+lspconfig.lua_ls.setup(luals_settings)
 
 lspconfig.tsserver.setup{}
 lspconfig.bashls.setup{}
@@ -17,7 +17,7 @@ lspconfig.cssls.setup{}
 lspconfig.html.setup{}
 
 -- Redifining signs
--- Bold Error \uf530 , 
+-- Bold Error , 
 -- Erro = 
 -- Bold Warning 
 -- Warning 
