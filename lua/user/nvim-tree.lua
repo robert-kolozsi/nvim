@@ -6,16 +6,19 @@ if not status_ok then
     return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-    return
-end
+-- As of August 14th 2023 this is not working anymore and the stup fails.
+-- To be more investigated in future.
+--local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+--if not config_status_ok then
+--    return
+--end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+-- local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
+    sort_by = "case_sensitive",
     -- open_on_setup = false,
     -- ignore_ft_on_setup = {
     --     "startify",
