@@ -50,6 +50,7 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
+  use {"christoomey/vim-tmux-navigator", lazy=false}
 
   -- Colorschemes
   --use "lifepillar/vim-solarized8"
@@ -75,6 +76,12 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
+  -- DAP, formatter, linter
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+  use "mfussenegger/nvim-lint"
+  use "mhartington/formatter.nvim"
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
@@ -89,6 +96,8 @@ return packer.startup(function(use)
 
   -- Marks in file
   use "chentoast/marks.nvim"
+
+  use "nvim-lualine/lualine.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
