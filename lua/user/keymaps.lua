@@ -85,3 +85,4 @@ keymap("n", "L", ":tabnext<CR>", opts)
 
 -- Buffer keys
 keymap("n", "<Tab>", ":bnext<CR>", opts)
+keymap("n", "<S-Tab>", ":bprev<CR>", opts)
