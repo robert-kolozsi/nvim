@@ -71,6 +71,7 @@ local options = {
 -- Recommended by COC,
 -- vim.api.nvim_set_option('nobackup')
 -- vim.api.nvim_set_option('nowritebackup')
+    mouse = '',
 }
 
 --vim.opt.shortmess:append "c"
