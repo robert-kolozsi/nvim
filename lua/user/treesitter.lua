@@ -1,4 +1,9 @@
 local configs = require("nvim-treesitter.configs")
+
+require('ts_context_commentstring').setup {
+    enable_autocmd = false,
+}
+
 configs.setup {
   ensure_installed = "all",
   sync_install = false,
@@ -10,8 +15,4 @@ configs.setup {
 
   },
   indent = { enable = true , disable = { "yaml", "python" }},
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
 }
