@@ -56,10 +56,10 @@ local options = {
 
     foldenable = true,
     foldmethod = 'indent',
-    foldlevelstart = 0,
+    foldlevelstart = 2,
     foldmarker = '{{{,}}}',
     foldnestmax = 2,  -- Deepest fold is 10 levels
-    foldlevel = 4,
+    foldlevel = 6,
     foldcolumn = '4',
 
     clipboard = 'unnamedplus',
