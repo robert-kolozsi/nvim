@@ -2,7 +2,7 @@
 local options = {
     background='dark',
     termguicolors = true,
-    textwidth = 79,
+    textwidth = 90,
     colorcolumn = "+1",
     synmaxcol=0,
     history = 1000,
