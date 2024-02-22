@@ -6,6 +6,15 @@ end
 -- This is not yet working on Mac
 --telescope.load_extension('media_files')
 
+local builtin = require("telescope.builtin")
+vim.keymap.set('n', '<leader>fw', builtin.grep_string, {desc = "Find Word under Cursor"})
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, {desc = "Search Git Commits"})
+vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, {desc = "Search Git Commits for Buffer"})
+
+-- TODO: Investigate this options!!!!
+-- local live_grep_args = telescope.load_extension("live_grep_args")
+-- vim.keymap.set('n', '<leader>fc', '<cmd>lua require("telescope.builtin").live_grep({ glob_pattern = "!{spec,test}"})<CR>', {desc = "Live Grep Code"})
+
 local actions = require "telescope.actions"
 
 telescope.setup {
