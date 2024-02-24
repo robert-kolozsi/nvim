@@ -11,9 +11,8 @@ vim.keymap.set('n', '<leader>fw', builtin.grep_string, {desc = "Find Word under 
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {desc = "Search Git Commits"})
 vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, {desc = "Search Git Commits for Buffer"})
 
--- TODO: Investigate this options!!!!
--- local live_grep_args = telescope.load_extension("live_grep_args")
--- vim.keymap.set('n', '<leader>fc', '<cmd>lua require("telescope.builtin").live_grep({ glob_pattern = "!{spec,test}"})<CR>', {desc = "Live Grep Code"})
+require("telescope").load_extension("live_grep_args")
+vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Live Grep"})
 
 local actions = require "telescope.actions"
 
