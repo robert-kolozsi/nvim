@@ -11,6 +11,14 @@ vim.keymap.set('n', '<leader>fw', builtin.grep_string, {desc = "Find Word under 
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {desc = "Search Git Commits"})
 vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, {desc = "Search Git Commits for Buffer"})
 
+vim.keymap.set('n', '<leader>/', function()
+    builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+    })
+    end, {desc = '[/] Fuzziy search in current buffer'}
+)
+
 require("telescope").load_extension("live_grep_args")
 vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Live Grep"})
 
