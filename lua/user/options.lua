@@ -52,7 +52,7 @@ local options = {
     hlsearch = true,
     incsearch = true,
     smartcase = true,
-    termencoding = 'utf-8', 
+    --termencoding = 'utf-8', 
 
     foldenable = true,
     foldmethod = 'indent',
