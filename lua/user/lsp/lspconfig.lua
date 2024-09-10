@@ -11,7 +11,8 @@ lspconfig.pyright.setup(pyright_settings)
 local luals_settings = require('user.lsp.settings.lua_ls')
 lspconfig.lua_ls.setup(luals_settings)
 
-lspconfig.tsserver.setup{}
+--lspconfig.tsserver.setup{}
+lspconfig.ts_ls.setup{}
 lspconfig.bashls.setup{}
 lspconfig.cssls.setup{}
 lspconfig.html.setup{}
