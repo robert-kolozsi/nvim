@@ -86,3 +86,6 @@ keymap("n", "L", ":tabnext<CR>", opts)
 -- Buffer keys
 keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprev<CR>", opts)
+
+-- Show current buffer full-path
+keymap("n", "<leader>bn", ":echo expand('%:p')<CR>", opts)
