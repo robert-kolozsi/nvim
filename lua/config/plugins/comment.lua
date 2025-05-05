@@ -26,4 +26,3 @@
 return {
     "numToStr/Comment.nvim",
 }
-
