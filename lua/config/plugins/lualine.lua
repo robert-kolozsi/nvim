@@ -11,7 +11,7 @@ local function GetClassName()
 
 	if current_indent >= indent then
 	    if class_name then
-		return "<" .. class_name .. ">"
+		return "" .. class_name .. ""
 	    end
 	end
     end
@@ -20,6 +20,9 @@ end
 
 return {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons", -- optional
+    },
     opts = function(_, opts)
         opts.options = {
                 icons_enabled = true,
@@ -60,14 +63,14 @@ return {
         opts.inactive_winbar = {}
         opts.extensions = {}
         --},
-    end
+    end --,
     --config = function()
-    --    local function UpdateStatsLine()
-    --        local result = GetClassName()
-    --        vim.wo.statusline = result
-    --    end
-	-- Refresh status line to display context CLASS name for Python currently!!!
-	-- vim.api.nvim_exec([[autocmd CursorMoved * lua UpdateStatsLine()]], false)
+     --  local update_stats_line = function()
+     --      local result = GetClassName()
+     --      vim.wo.statusline = result
+     --  end
+	 --Refresh status line to display context CLASS name for Python currently!!!
+	 --vim.api.nvim_exec([[autocmd CursorMoved * lua update_stats_line()]], false)
 
-    --end
+    --end,
 }

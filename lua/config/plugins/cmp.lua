@@ -133,6 +133,7 @@
 
 return {
 	"hrsh7th/nvim-cmp",
+    event = "InsertEnter",
 	dspendencies = {
         "hrsh7th/cmp-nvim-cmp",
         "hrsh7th/cmp-buffer",
@@ -150,9 +151,9 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }),
             sources = cmp.config.sources({
-                { name = 'copilot' },
                 { name = 'nvim_lsp' },
                 { name = 'buffer' },
+                { name = 'copilot' },
                 { name = "nvim_lua" },
                 { name = 'luasnip' },
                 { name = "path" },
