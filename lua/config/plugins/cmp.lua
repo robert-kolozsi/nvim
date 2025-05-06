@@ -133,5 +133,32 @@
 
 return {
 	"hrsh7th/nvim-cmp",
-	dspendencies = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline" },
+	dspendencies = {
+        "hrsh7th/cmp-nvim-cmp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
+        "zbirenbaum/copilot-cmp",
+    },
+    config = function()
+        local cmp = require("cmp")
+        cmp.setup({
+            mapping = cmp.mapping.preset.insert({
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            }),
+            sources = cmp.config.sources({
+                { name = 'copilot' },
+                { name = 'nvim_lsp' },
+                { name = 'buffer' },
+                { name = "nvim_lua" },
+                { name = 'luasnip' },
+                { name = "path" },
+            }, {
+                { name = 'buffer' },
+            }),
+        })
+    end
 }
