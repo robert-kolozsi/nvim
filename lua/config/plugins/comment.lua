@@ -25,4 +25,6 @@
 -- Lazy
 return {
     "numToStr/Comment.nvim",
+    event = {"BufReadPost", "BufNewFile"},
+    config = true -- runs require('Comment').setup()
 }

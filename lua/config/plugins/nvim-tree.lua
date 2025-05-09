@@ -3,9 +3,14 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        require("nvim-tree").setup({
-            disable_netrw = true,
-            hijack_netrw = true,
+        local nvimtree = require("nvim-tree")
+
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
+
+        nvimtree.setup({
+            --disable_netrw = true,
+            --hijack_netrw = true,
             sort_by = "case_sensitive",
             open_on_tab = false,
             hijack_cursor = false,
