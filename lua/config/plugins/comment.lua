@@ -24,7 +24,25 @@
 
 -- Lazy
 return {
-    "numToStr/Comment.nvim",
-    event = {"BufReadPost", "BufNewFile"},
-    config = true -- runs require('Comment').setup()
+    {
+        "numToStr/Comment.nvim",
+        event = {"BufReadPost", "BufNewFile"},
+        config = true -- runs require('Comment').setup()
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            signs = true,
+            keywords = {
+                FIX = { icon = " ", color = "error", alt = { "BUG", "FIXME", "ISSUE" } },
+                TODO = { icon = " ", color = "info" },
+                HACK = { icon = " ", color = "warning" },
+                WARN = { icon = " ", color = "warning" },
+                PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" }, color = "warning" },
+                NOTE = { icon = " ", color = "hint" },
+                TEST = { icon = "⏲ ", color = "test" },
+            }
+        }
+    },
 }
