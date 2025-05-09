@@ -74,7 +74,7 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- Gitsigns: in case something is not working in lua/user/gitsigns.lua
-vim.keymap.set("n", "<leader>b", ":Gitsigns toggle_current_line_blame<CR>", {})
+--vim.keymap.set("n", "<leader>b", ":Gitsigns toggle_current_line_blame<CR>", {})
 
 -- NvimTree
 keymap("n", "<leader>nt", ":NvimTreeToggle<cr>", opts)
