@@ -125,4 +125,18 @@
 return {
     "nvim-telescope/telescope.nvim",
     depedencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+        require("telescope").setup {
+            defaults = {
+                prompt_prefix = " ",
+                selection_caret = " ",
+                path_display = { "smart" },
+                mappings = {
+                    i = {
+                        ["<C-c>"] = require("telescope.actions").close,
+                    },
+                },
+            },
+        }
+    end,
 }
