@@ -4,6 +4,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
+    event = {"BufEnter", "BufReadPre", "BufNewFile"},
     config = function()
         -- import Mason
         local mason = require("mason")
@@ -26,6 +27,7 @@ return {
         mason_lspconfig.setup({
             ensure_installed = {"pyright", "ts_ls", "bashls", "cssls", "html", "lua_ls"},
             automatic_installation = false,
+            automatic_enable = true,
             handlers = nil,
         })
 
@@ -33,7 +35,7 @@ return {
             ensure_installed = {
                 "prettier", -- prettier formatter
                 "stylua", -- lua formatter
-                "isort", -- python formatter
+                --"isort", -- python formatter
                 "black", -- python formatter
                 "pylint",
                 "eslint_d",

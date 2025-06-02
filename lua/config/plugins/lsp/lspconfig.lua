@@ -9,7 +9,7 @@
 -- Lazy
 return {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewfile"},
+    event = {"BufEnter", "BufReadPre", "BufNewFile"},
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",  -- plays nicely with "hrsh7th/nvim-cmp"
@@ -41,10 +41,36 @@ return {
         -- Bold Hint 󱩖
         -- Hint  󰛩
 
-        vim.fn.sign_define("DiagnosticSignError", {texthl="DiagnosticSignError", text=""})
-        vim.fn.sign_define("DiagnosticSignWarn", {texthl="DiagnosticSignWarn", text=""})
-        vim.fn.sign_define("DiagnosticSignHint", {texthl="DiagnosticSignHint", text="󰛩"})
-        vim.fn.sign_define("DiagnosticSignInfo", {texthl="DiagnosticSignInfo", text="󰋽"})
+        -- Sign icons
+        local signs = {
+            Error = "",
+            Warn  = "",
+            Hint  = "󰛩",
+            Info  = "󰋽"
+        }
+
+        for type, icon in pairs(signs) do
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        end
+
+        -- Diagnostic configuration
+        vim.diagnostic.config({
+            virtual_text = {
+                prefix = "●",  -- Or use "", "▎", etc.
+                spacing = 4,
+            },
+            signs = true,
+            underline = true,
+            update_in_insert = false,
+            severity_sort = true,
+            float = {
+                border = "rounded",
+                source = "always",
+                header = "",
+                prefix = "",
+            },
+        })
 
         local config = {
             virtual_text = false,
@@ -68,6 +94,12 @@ return {
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
         vim.keymap.set('n', 'gq', vim.diagnostic.setloclist)
+
+        -- Manually stop start LSP server
+        vim.keymap.set('n', '<leader>ll', function()
+            vim.cmd("LspStop")
+            vim.cmd("LspStart")
+        end, { desc = "Restart LSP" })
 
         -- Use LspAttach autocommand to only map the following keys
         -- after the language server attaches to the current buffer

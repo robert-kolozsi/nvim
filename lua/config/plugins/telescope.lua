@@ -124,9 +124,13 @@
 
 return {
     "nvim-telescope/telescope.nvim",
-    depedencies = { "nvim-lua/plenary.nvim" },
+    depedencies = {
+        "nvim-lua/plenary.nvim",
+        {"nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0"},
+    },
     config = function()
-        require("telescope").setup {
+        local telescope = require("telescope")
+        telescope.setup {
             defaults = {
                 prompt_prefix = " ",
                 selection_caret = " ",
@@ -138,5 +142,9 @@ return {
                 },
             },
         }
+
+        --telescope.load_extension("live-grep-args")
+        --vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Live Grep"})
     end,
+
 }
