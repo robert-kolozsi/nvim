@@ -17,19 +17,10 @@ return {
         { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-        local lspconfig = require("lspconfig")
 
-        local pyright_settings = require('config.plugins.lsp.settings.pyright')
-        lspconfig.pyright.setup(pyright_settings)
-
-        local luals_settings = require('config.plugins.lsp.settings.lua_ls')
-        lspconfig.lua_ls.setup(luals_settings)
-
-        --lspconfig.tsserver.setup{}
-        lspconfig.ts_ls.setup{}
-        lspconfig.bashls.setup{}
-        lspconfig.cssls.setup{}
-        lspconfig.html.setup{}
+        vim.lsp.config('pyright', require('config.plugins.lsp.settings.pyright'))
+        vim.lsp.config('lua_ls', require('config.plugins.lsp.settings.lua_ls'))
+        vim.lsp.enable('pyright', 'lua_ls', 'ts_ls', 'bashls', 'cssls', 'html')
 
         -- Redifining signs
         -- Bold Error , 
@@ -41,52 +32,32 @@ return {
         -- Bold Hint 󱩖
         -- Hint  󰛩
 
-        -- Sign icons
-        local signs = {
-            Error = "",
-            Warn  = "",
-            Hint  = "󰛩",
-            Info  = "󰋽"
-        }
-
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-        end
-
         -- Diagnostic configuration
         vim.diagnostic.config({
             virtual_text = {
                 prefix = "●",  -- Or use "", "▎", etc.
                 spacing = 4,
             },
-            signs = true,
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "",
+                    [vim.diagnostic.severity.WARN]  = "",
+                    [vim.diagnostic.severity.INFO]  = "󰋽",
+                    [vim.diagnostic.severity.HINT]  = "󰛩",
+                },
+            },
             underline = true,
             update_in_insert = false,
             severity_sort = true,
             float = {
+                focusable = false,
                 border = "rounded",
+                style = "minimal",
                 source = "always",
                 header = "",
                 prefix = "",
             },
         })
-
-        local config = {
-            virtual_text = false,
-            underline = true,
-            signs = true,
-            severity_sort = true,
-            float = {
-                focusable = false,
-                border = 'rounded',
-                style = 'minimal',
-                source = true,
-                header = '',
-                prefix = '',
-            }
-        }
-        vim.diagnostic.config(config)
 
         -- Global mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
