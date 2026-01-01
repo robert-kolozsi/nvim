@@ -1,16 +1,4 @@
---local util = require('lspconfig.util')
-
 return {
-    --default_config = {
-    --    autostart = false
-    --},
-
-    --root_dir = function(fname)
-    --    local root = util.root_pattern("pyrightconfig.json")(fname)
-    --    print("pyright root_dir: " .. (root or "nil"))
-    --    return root
-    --end,
-
     settings = {
         python = {
             analysis = {
@@ -24,5 +12,5 @@ return {
             disableLanguageServices = false,
             disableOrgaizeImport = true,
         }
-	},
+    },
 }

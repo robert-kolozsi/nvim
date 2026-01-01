@@ -1,12 +1,3 @@
--- Packer old
---local ok, lspconfig = pcall(require, 'lspconfig')
---if not ok then
---    print("ERROR: lspconfig not loaded!")
---    print(lspconfig)
---    return
---end
-
--- Lazy
 return {
     "neovim/nvim-lspconfig",
     event = {"BufEnter", "BufReadPre", "BufNewFile"},
@@ -103,5 +94,4 @@ return {
         end,
         })
     end
-
 }
