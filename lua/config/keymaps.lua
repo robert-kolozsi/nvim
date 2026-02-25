@@ -82,3 +82,9 @@ keymap("n", "<S-Tab>", ":bprev<CR>", opts)
 
 -- Show current buffer full-path
 keymap("n", "<leader>bn", ":echo expand('%:p')<CR>", opts)
+
+-- Navigating windows remap using Ctrl + h/j/k/l
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
