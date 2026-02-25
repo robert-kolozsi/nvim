@@ -12,13 +12,12 @@ return {
         require("codecompanion").setup({
 
         strategies = {
-            chat = { adapter = "gemini" },
+            chat = { adapter = "gemini" },  -- Maybe later add a model selector here.
             inline = { adapter = "gemini" },
             agent = { adapter = "gemini" },
         },
 
         adapters = {
-            -- Flash model
             gemini = function()
               return require("codecompanion.adapters").extend("gemini", {
                             schema = {
@@ -29,7 +28,7 @@ return {
             end,
         },
         opts = {
-            log_level = "DEBUG", -- Helps us see errors in :messages if they happen
+            log_level = "DEBUG", -- Helps see errors in :messages if they happen
         },
 
         --display = {
